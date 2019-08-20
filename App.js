@@ -18,8 +18,10 @@ export default class App extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
+
 				<Text style={styles.welcome}>Welcome to React Native Component!</Text>
 				<Text style={styles.instructions}>To ge App.js</Text>
+
 				<Text style={styles.instructions}>{instructions}</Text>
 			</View>
 		);
