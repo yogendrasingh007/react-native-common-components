@@ -2,13 +2,14 @@ import React from 'react';
 import { Text, View, Image, Dimensions } from 'react-native';
 import { BaseComponent, Button } from '#CommonComponents';
 
-const { width } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 class WelcomeScene extends BaseComponent {
 	renderImage(styles) {
 		return (
-			<View style={styles.primaryContainer}>
-				<Image source={this.appImages('welcome').source} style={{ width: '100%', height: '100%' }} />
-			</View>
+			<Image
+				source={this.appImages('welcome').source}
+				style={{ width: '100%', resizeMode: 'repeat', height: '100%' }}
+			/>
 		);
 	}
 	renderTitle(styles) {
@@ -33,9 +34,10 @@ class WelcomeScene extends BaseComponent {
 	render() {
 		const styles = this.styleSheet();
 		return (
-			<View style={styles.container}>
+			<View style={styles.secondaryContainer}>
 				{this.renderImage(styles)}
-				<View style={styles.secondaryContainer}>
+
+				<View style={{ alignItems: 'center', paddingVertical: height * 0.03 }}>
 					{this.renderTitle(styles)}
 					{this.renderDescription(styles)}
 					{this.renderButton(styles)}
@@ -48,27 +50,23 @@ class WelcomeScene extends BaseComponent {
 		const { Colors, ViewStyles } = this.theme();
 		return {
 			...ViewStyles,
-			primaryContainer: {
-				flex: 6
-			},
+			primaryContainer: {},
 			secondaryContainer: {
-				flex: 4,
-				alignItems: 'center',
-				backgroundColor: Colors.DEFAULT_COLOR
+				flex: 1,
+				justifyContent: 'flex-end'
 			},
 			title: {
-				fontSize: 25,
+				fontSize: 30,
 				textShadowColor: 'grey',
 				textShadowOffset: { width: 2, height: 2 },
 				textShadowRadius: 4,
 				textAlign: 'center',
 				color: Colors.TITLE_COLOR,
-				textTransform: 'uppercase',
-				marginTop: 20
+				textTransform: 'uppercase'
 			},
 			Button: {
-				marginTop: 18,
 				width: width * 0.8,
+				marginTop: height * 0.02,
 				backgroundColor: 'transparent'
 			},
 			buttonTitle: {
@@ -81,10 +79,10 @@ class WelcomeScene extends BaseComponent {
 				elevation: 3
 			},
 			description: {
-				fontSize: 18,
+				fontSize: 16,
 				color: 'grey',
 				textAlign: 'center',
-				marginTop: 20,
+				marginTop: height * 0.02,
 				marginHorizontal: 10
 			}
 		};
