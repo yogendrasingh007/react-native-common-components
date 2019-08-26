@@ -1,4 +1,4 @@
-import { Images, Theme, AppStrings } from './res';
+import { Images, Theme, Strings } from './res';
 
 /// It's not direct accessible, use methods
 
@@ -9,7 +9,7 @@ let appTheme = null;
 class GlobalResourceProvider {
 	constructor() {
 		appImages = Images;
-		appStrings = AppStrings;
+		appStrings = Strings;
 		appTheme = Theme;
 		return this;
 	}
@@ -21,6 +21,7 @@ class GlobalResourceProvider {
 
 	updateImages(newImages) {
 		appImages = Object.assign({ ...appImages }, newImages);
+		console.warn(appImages.welcome);
 		return this;
 	}
 

@@ -15,5 +15,9 @@ module.exports = [
 	{
 		rootPathPrefix: '#Utils',
 		rootPathSuffix: 'src/Utils'
+	},
+	{
+		rootPathPrefix: '#Themes',
+		rootPathSuffix: 'src/res/Theme'
 	}
 ];

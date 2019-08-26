@@ -1,11 +1,13 @@
 import Redux from './Redux';
 import UI from './UI';
-import Utils from './Utils';
-import sharedGRP from './GRP';
 
+import sharedGRP from './GRP';
+import Screens from './Screens';
+import BootLoader from './BootLoader';
 module.exports = {
-	Redux,
-	UI,
-	Utils,
-	sharedGRP
+	...Redux,
+	...UI,
+	sharedGRP,
+	...Screens,
+	...BootLoader
 };

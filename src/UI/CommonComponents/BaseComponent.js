@@ -1,5 +1,4 @@
 import { Component } from 'react';
-
 import sharedGRP from '#GRP';
 
 class BaseComponent extends Component {
@@ -18,7 +17,7 @@ class BaseComponent extends Component {
 
 	// local strings
 	ls(k) {
-		return sharedGRP.ls(k);
+		return sharedGRP.ls[k];
 	}
 
 	/// Stylesheet

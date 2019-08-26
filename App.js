@@ -6,42 +6,30 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { Platform, StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 
-const instructions = Platform.select({
-	ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-	android: 'Double tap R on your keyboard to reload,\n' + 'Shake or press menu button for dev menu'
-});
-
-export default class App extends Component {
+import { BaseComponent } from '#CommonComponents';
+// import { Fonts, ViewStyles, Colors } from '#Themes';
+import Test from './Test/Test';
+export default class App extends BaseComponent {
 	render() {
+		const styles = this.styleSheet();
 		return (
-			<View style={styles.container}>
-				<Text style={styles.welcome}>Welcome to React Native Component!</Text>
-				<Text style={styles.instructions}>To ge App.js</Text>
-
-				<Text style={styles.instructions}>{instructions}</Text>
+			<View style={[styles.container, { justifyContent: 'center', alignItems: 'center' }]}>
+				<Test />
 			</View>
 		);
 	}
-}
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center',
-		backgroundColor: '#F5FCFF'
-	},
-	welcome: {
-		fontSize: 20,
-		textAlign: 'center',
-		margin: 10
-	},
-	instructions: {
-		textAlign: 'center',
-		color: '#333333',
-		marginBottom: 5
+	defaultStyles() {
+		const { ViewStyles, Colors, Fonts } = this.theme();
+		return {
+			...ViewStyles,
+			textStyle: {
+				...Fonts.bold(28),
+				color: Colors.Text_Color
+			}
+		};
 	}
-});
+}
