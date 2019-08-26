@@ -52,22 +52,23 @@ class WelcomeScene extends BaseComponent {
 				flex: 6
 			},
 			secondaryContainer: {
-				flex: 4,
+				flex: 2,
 				alignItems: 'center',
+				paddingTop: 20,
+
 				backgroundColor: Colors.DEFAULT_COLOR
 			},
 			title: {
-				fontSize: 25,
+				fontSize: 30,
 				textShadowColor: 'grey',
 				textShadowOffset: { width: 2, height: 2 },
 				textShadowRadius: 4,
 				textAlign: 'center',
 				color: Colors.TITLE_COLOR,
-				textTransform: 'uppercase',
-				marginTop: 20
+				textTransform: 'uppercase'
 			},
 			Button: {
-				marginTop: 18,
+				marginTop: 30,
 				width: width * 0.8,
 				backgroundColor: 'transparent'
 			},
