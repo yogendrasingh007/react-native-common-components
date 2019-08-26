@@ -59,7 +59,7 @@ class WelcomeScene extends BaseComponent {
 				backgroundColor: Colors.DEFAULT_COLOR
 			},
 			title: {
-				fontSize: 40,
+				fontSize: 30,
 				textShadowColor: 'grey',
 				textShadowOffset: { width: 2, height: 2 },
 				textShadowRadius: 4,
