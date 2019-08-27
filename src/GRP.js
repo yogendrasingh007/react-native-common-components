@@ -21,7 +21,6 @@ class GlobalResourceProvider {
 
 	updateImages(newImages) {
 		appImages = Object.assign({ ...appImages }, newImages);
-		console.warn(appImages.welcome);
 		return this;
 	}
 

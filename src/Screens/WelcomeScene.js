@@ -6,12 +6,10 @@ const { width, height } = Dimensions.get('window');
 class WelcomeScene extends BaseComponent {
 	renderImage(styles) {
 		return (
-			<View style={{ flex: 1 }}>
-				<Image
-					source={this.appImages('welcome').source}
-					style={{ width: '100%', resizeMode: 'contain', position: 'relative' }}
-				/>
-			</View>
+			<Image
+				source={this.appImages('welcome').source}
+				style={{ width: '100%', resizeMode: 'repeat', height: '100%' }}
+			/>
 		);
 	}
 	renderTitle(styles) {
@@ -39,7 +37,7 @@ class WelcomeScene extends BaseComponent {
 			<View style={styles.secondaryContainer}>
 				{this.renderImage(styles)}
 
-				<View style={{ alignItems: 'center', backgroundColor: 'white', paddingVertical: height * 0.03 }}>
+				<View style={{ alignItems: 'center', paddingVertical: height * 0.03 }}>
 					{this.renderTitle(styles)}
 					{this.renderDescription(styles)}
 					{this.renderButton(styles)}
