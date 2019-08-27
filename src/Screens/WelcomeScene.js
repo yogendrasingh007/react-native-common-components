@@ -43,6 +43,7 @@ class WelcomeScene extends BaseComponent {
 					{this.renderButton(styles)}
 				</View>
 			</View>
+			// </ImageBackground>
 		);
 	}
 
