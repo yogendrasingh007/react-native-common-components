@@ -21,7 +21,10 @@ class GlobalResourceProvider {
 
 	updateImages(newImages) {
 		appImages = Object.assign({ ...appImages }, newImages);
+<<<<<<< HEAD
 
+=======
+>>>>>>> muskan
 		return this;
 	}
 

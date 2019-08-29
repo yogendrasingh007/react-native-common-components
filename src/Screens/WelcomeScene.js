@@ -3,13 +3,14 @@ import { Text, View, Image, StatusBar, Dimensions } from 'react-native';
 import { BaseComponent, Button } from '#CommonComponents';
 import { connect } from 'react-redux';
 
-const { width } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 class WelcomeScene extends BaseComponent {
 	renderImage(styles) {
 		return (
-			<View style={styles.primaryContainer}>
-				<Image source={this.appImages('welcome').source} style={{ width: '100%', height: '100%' }} />
-			</View>
+			<Image
+				source={this.appImages('welcome').source}
+				style={{ width: '100%', resizeMode: 'repeat', height: '100%' }}
+			/>
 		);
 	}
 	renderTitle(styles) {
@@ -35,21 +36,28 @@ class WelcomeScene extends BaseComponent {
 		const styles = this.styleSheet();
 
 		return (
+<<<<<<< HEAD
 			<View style={styles.container}>
 				<StatusBar translucent={true} backgroundColor={'transparent'} />
+=======
+			<View style={styles.secondaryContainer}>
+>>>>>>> muskan
 				{this.renderImage(styles)}
-				<View style={styles.secondaryContainer}>
+
+				<View style={{ alignItems: 'center', paddingVertical: height * 0.03 }}>
 					{this.renderTitle(styles)}
 					{this.renderDescription(styles)}
 					{this.renderButton(styles)}
 				</View>
 			</View>
+			// </ImageBackground>
 		);
 	}
 
 	defaultStyles() {
 		const { Colors, ViewStyles } = this.theme();
 		return {
+<<<<<<< HEAD
 			primaryContainer: {
 				height: '70%'
 			},
@@ -57,21 +65,31 @@ class WelcomeScene extends BaseComponent {
 				height: '30%',
 
 				alignItems: 'center'
+=======
+			...ViewStyles,
+			primaryContainer: {},
+			secondaryContainer: {
+				flex: 1,
+				justifyContent: 'flex-end'
+>>>>>>> muskan
 			},
 			title: {
-				fontSize: 25,
+				fontSize: 30,
 				textShadowColor: 'grey',
 				textShadowOffset: { width: 2, height: 2 },
 				textShadowRadius: 4,
 				textAlign: 'center',
 				color: Colors.TITLE_COLOR,
-				textTransform: 'uppercase',
-				marginTop: 20
+				textTransform: 'uppercase'
 			},
 			Button: {
+<<<<<<< HEAD
 				marginTop: 10,
 				margin: 10,
+=======
+>>>>>>> muskan
 				width: width * 0.8,
+				marginTop: height * 0.02,
 				backgroundColor: 'transparent'
 			},
 			buttonTitle: {
@@ -84,10 +102,14 @@ class WelcomeScene extends BaseComponent {
 				elevation: 3
 			},
 			description: {
-				fontSize: 18,
+				fontSize: 16,
 				color: 'grey',
 				textAlign: 'center',
+<<<<<<< HEAD
 				marginTop: 13,
+=======
+				marginTop: height * 0.02,
+>>>>>>> muskan
 				marginHorizontal: 10
 			}
 		};
