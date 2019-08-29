@@ -36,12 +36,8 @@ class WelcomeScene extends BaseComponent {
 		const styles = this.styleSheet();
 
 		return (
-<<<<<<< HEAD
 			<View style={styles.container}>
 				<StatusBar translucent={true} backgroundColor={'transparent'} />
-=======
-			<View style={styles.secondaryContainer}>
->>>>>>> muskan
 				{this.renderImage(styles)}
 
 				<View style={{ alignItems: 'center', paddingVertical: height * 0.03 }}>
@@ -57,7 +53,6 @@ class WelcomeScene extends BaseComponent {
 	defaultStyles() {
 		const { Colors, ViewStyles } = this.theme();
 		return {
-<<<<<<< HEAD
 			primaryContainer: {
 				height: '70%'
 			},
@@ -65,13 +60,6 @@ class WelcomeScene extends BaseComponent {
 				height: '30%',
 
 				alignItems: 'center'
-=======
-			...ViewStyles,
-			primaryContainer: {},
-			secondaryContainer: {
-				flex: 1,
-				justifyContent: 'flex-end'
->>>>>>> muskan
 			},
 			title: {
 				fontSize: 30,
@@ -83,11 +71,8 @@ class WelcomeScene extends BaseComponent {
 				textTransform: 'uppercase'
 			},
 			Button: {
-<<<<<<< HEAD
 				marginTop: 10,
 				margin: 10,
-=======
->>>>>>> muskan
 				width: width * 0.8,
 				marginTop: height * 0.02,
 				backgroundColor: 'transparent'
@@ -105,11 +90,7 @@ class WelcomeScene extends BaseComponent {
 				fontSize: 16,
 				color: 'grey',
 				textAlign: 'center',
-<<<<<<< HEAD
 				marginTop: 13,
-=======
-				marginTop: height * 0.02,
->>>>>>> muskan
 				marginHorizontal: 10
 			}
 		};
