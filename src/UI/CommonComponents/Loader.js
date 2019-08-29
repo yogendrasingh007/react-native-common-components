@@ -1,45 +1,39 @@
 import React from 'react';
-import { View, Modal, ActivityIndicator } from 'react-native';
-import BaseComponent from './BaseComponent';
+import { StyleSheet, View, Modal, ActivityIndicator } from 'react-native';
+import Spinner from 'react-native-spinkit';
 
-class Loader extends BaseComponent {
-	render() {
-		const styles = this.styleSheet();
-		return (
-			<Modal transparent={true} animationType={'none'}>
-				<View style={styles.modalBackground}>
-					<View style={styles.activityIndicator}>
-						<ActivityIndicator size={this.props.size} color={this.props.color} />
-					</View>
+const Loader = props => {
+	const { loading } = props;
+
+	return (
+		<Modal transparent={true} animationType={'none'} visible={loading}>
+			<View style={styles.modalBackground}>
+				<View style={styles.activityIndicator}>
+					<Spinner isVisible={true} size={70} type={props.style} color={'black'} />
 				</View>
-			</Modal>
-		);
-	}
-
-	defaultStyles() {
-		return {
-			modalBackground: {
-				flex: 1,
-				alignItems: 'center',
-				justifyContent: 'center',
-				backgroundColor: 'transparent',
-				opacity: 0.9
-			},
-			activityIndicator: {
-				backgroundColor: '#FFFFFF',
-				height: 100,
-				width: 100,
-				borderRadius: 10,
-				alignItems: 'center',
-				justifyContent: 'center'
-			}
-		};
-	}
-}
-
-Loader.defaultProps = {
-	size: 50,
-	color: 'black'
+			</View>
+		</Modal>
+	);
 };
+
+const styles = StyleSheet.create({
+	modalBackground: {
+		flex: 1,
+		alignItems: 'center',
+		flexDirection: 'column',
+		justifyContent: 'space-around',
+		backgroundColor: 'transparent',
+		opacity: 0.9
+	},
+	activityIndicator: {
+		backgroundColor: '#FFFFFF',
+		height: 120,
+		width: 120,
+		borderRadius: 10,
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'space-around'
+	}
+});
 
 export default Loader;

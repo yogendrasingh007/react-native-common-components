@@ -5,13 +5,13 @@ import PropTypes from 'prop-types';
 
 export default class SplashScene extends BaseComponent {
 	renderSpinner() {
-		return <Loader style={'Square'} />;
+		return <Loader style={'Circle'} />;
 	}
 
 	render() {
 		const styles = this.styleSheet();
 		return (
-			<ImageBackground source={this.appImages('splash').source} style={{ flex: 1 }}>
+			<ImageBackground source={this.appImages('welcome').source} style={{ flex: 1, opacity: 0.7 }}>
 				<View style={styles.container}>
 					<StatusBar translucent={true} backgroundColor={'transparent'} />
 					{this.renderSpinner()}

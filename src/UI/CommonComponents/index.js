@@ -1,10 +1,14 @@
 import BaseComponent from './BaseComponent';
-import Background from './Background';
+import { Background, BackgroundHOC, BackgroundCommon, BackgroundCommonHOC } from './Background';
 import Button from './Button';
 import Loader from './Loader';
 module.exports = {
 	BaseComponent,
-	Background,
 	Button,
-	Loader
+	Loader,
+	Background,
+
+	BackgroundHOC,
+
+	BackgroundCommonHOC
 };

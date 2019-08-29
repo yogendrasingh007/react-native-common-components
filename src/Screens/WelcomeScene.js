@@ -1,6 +1,7 @@
 import React from 'react';
-import { Text, View, Image, Dimensions } from 'react-native';
+import { Text, View, Image, StatusBar, Dimensions } from 'react-native';
 import { BaseComponent, Button } from '#CommonComponents';
+import { connect } from 'react-redux';
 
 const { width } = Dimensions.get('window');
 class WelcomeScene extends BaseComponent {
@@ -32,8 +33,10 @@ class WelcomeScene extends BaseComponent {
 
 	render() {
 		const styles = this.styleSheet();
+
 		return (
 			<View style={styles.container}>
+				<StatusBar translucent={true} backgroundColor={'transparent'} />
 				{this.renderImage(styles)}
 				<View style={styles.secondaryContainer}>
 					{this.renderTitle(styles)}
@@ -47,14 +50,13 @@ class WelcomeScene extends BaseComponent {
 	defaultStyles() {
 		const { Colors, ViewStyles } = this.theme();
 		return {
-			...ViewStyles,
 			primaryContainer: {
-				flex: 6
+				height: '70%'
 			},
 			secondaryContainer: {
-				flex: 4,
-				alignItems: 'center',
-				backgroundColor: Colors.DEFAULT_COLOR
+				height: '30%',
+
+				alignItems: 'center'
 			},
 			title: {
 				fontSize: 25,
@@ -67,7 +69,8 @@ class WelcomeScene extends BaseComponent {
 				marginTop: 20
 			},
 			Button: {
-				marginTop: 18,
+				marginTop: 10,
+				margin: 10,
 				width: width * 0.8,
 				backgroundColor: 'transparent'
 			},
@@ -84,11 +87,14 @@ class WelcomeScene extends BaseComponent {
 				fontSize: 18,
 				color: 'grey',
 				textAlign: 'center',
-				marginTop: 20,
+				marginTop: 13,
 				marginHorizontal: 10
 			}
 		};
 	}
 }
+const mapStateToProps = state => {
+	return { isLogin: state.isLogin };
+};
 
-export default WelcomeScene;
+export default connect(mapStateToProps)(WelcomeScene);

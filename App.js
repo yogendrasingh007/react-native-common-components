@@ -10,8 +10,10 @@ import React from 'react';
 import { Platform, StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 
 import { BaseComponent } from '#CommonComponents';
-// import { Fonts, ViewStyles, Colors } from '#Themes';
+import { Provider } from 'react-redux';
+
 import Test from './Test/Test';
+
 export default class App extends BaseComponent {
 	render() {
 		const styles = this.styleSheet();
