@@ -7,10 +7,9 @@ const { width, height } = Dimensions.get('window');
 class WelcomeScene extends BaseComponent {
 	renderImage(styles) {
 		return (
-			<Image
-				source={this.appImages('welcome').source}
-				style={{ width: '100%', resizeMode: 'repeat', height: '100%' }}
-			/>
+			<View style={styles.primaryContainer}>
+				<Image source={this.appImages('welcome').source} style={{ width: '100%', height: '100%' }} />
+			</View>
 		);
 	}
 	renderTitle(styles) {
@@ -46,7 +45,6 @@ class WelcomeScene extends BaseComponent {
 					{this.renderButton(styles)}
 				</View>
 			</View>
-			// </ImageBackground>
 		);
 	}
 

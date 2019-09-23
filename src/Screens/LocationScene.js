@@ -1,28 +1,52 @@
-import React from 'react';
-import { StatusBar, View, Text, ImageBackground } from 'react-native';
-import { BaseComponent, Button } from '#CommonComponents';
-import { connect } from 'react-redux';
+import React, { Component } from 'react';
+import { AppRegistry, StyleSheet, Text, View, TouchableOpacity, LayoutAnimation } from 'react-native';
 
-class LocationScene extends BaseComponent {
+class LocationScene extends Component {
+	constructor() {
+		super();
+
+		this.state = {
+			check: false
+		};
+	}
+
+	onPresscheck() {
+		LayoutAnimation.configureNext(LayoutAnimation.Presets.linear);
+
+		//LayoutAnimation.configureNext(CustomLayoutAnimation);
+
+		this.setState({ check: !this.state.check });
+	}
+
 	render() {
-		if (this.props.isLogin) {
-			return (
-				<View>
-					<Text>Location welcome</Text>
-				</View>
-			);
-		} else {
-			return (
-				<View>
-					<Text>login login not login</Text>
-				</View>
-			);
-		}
+		var middleStyle = this.state.check === false ? { width: 20, height: 20 } : { width: '100%', height: '100%' };
+
+		return (
+			<View style={styles.container}>
+				<TouchableOpacity style={styles.button} onPress={() => this.onPresscheck()}>
+					<Text>pressbutton</Text>
+				</TouchableOpacity>
+				<View style={[middleStyle, { backgroundColor: 'seagreen' }]} />
+			</View>
+		);
 	}
 }
 
-const mapStateToProps = state => {
-	return { isLogin: state.isLogin };
-};
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+		backgroundColor: '#F5FCFF'
+	},
+	button: {
+		width: '100%',
+		height: 60,
+		backgroundColor: 'blue',
+		alignItems: 'center',
+		justifyContent: 'center',
+		margin: 8
+	}
+});
 
-export default connect(mapStateToProps)(LocationScene);
+export default LocationScene;

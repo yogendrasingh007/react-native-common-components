@@ -9,6 +9,13 @@ import LocationScene from './Screens/LocationScene';
 import Images from './res/Images';
 const TabIcon = ({ index, focused }) => {
 	const images = [Images.tab1.source, Images.tab2.source, Images.tab3.source, Images.tab4.source, Images.tab5.source];
+	const focImages = [
+		Images.tab1Selected.source,
+		Images.tab2Selected.source,
+		Images.tab3Selected.source,
+		Images.tab4Selected.source,
+		Images.tab5Selected.source
+	];
 	return (
 		<View style={{ justifyContent: 'center' }}>
 			<View
@@ -20,16 +27,19 @@ const TabIcon = ({ index, focused }) => {
 					width: '100%'
 				}}
 			/>
-			<Image source={images[index]} style={{ alignSelf: 'center', justifyContent: 'center' }} />
+			{focused ? (
+				<Image source={focImages[index]} style={{ alignSelf: 'center', justifyContent: 'center' }} />
+			) : (
+				<Image source={images[index]} style={{ alignSelf: 'center', justifyContent: 'center' }} />
+			)}
+
 			{focused && (
 				<View
 					style={{
 						position: 'absolute',
-
 						justifyContent: 'center',
 						alignItems: 'center',
 						alignSelf: 'center',
-
 						height: 2,
 						marginTop: 2,
 						width: Dimensions.get('screen').width / 5
@@ -38,6 +48,30 @@ const TabIcon = ({ index, focused }) => {
 			)}
 		</View>
 	);
+};
+const NavigationConfig = () => {
+	return {
+		screenInterpolator: sceneProps => {
+			const position = sceneProps.position;
+			const index = sceneProps.index;
+			const scene = sceneProps.scene;
+			const height = sceneProps.layout.initHeight;
+			const width = sceneProps.layout.initWidth;
+
+			return BottomTransition(index, position, width);
+		},
+		transitionSpec: { duration: 5000 }
+	};
+};
+
+const RightTransition = (index, position, width) => {
+	const sceneRange = [index - 1, index];
+	const outputWidth = [width, 0];
+	const transition = position.interpolate({
+		inputRange: sceneRange,
+		outputRange: outputWidth
+	});
+	return { transform: [{ translateX: transition }] };
 };
 
 const TabNavigator = createBottomTabNavigator(
@@ -78,13 +112,16 @@ const TabNavigator = createBottomTabNavigator(
 			}
 		}
 	},
+
 	{
 		tabBarOptions: {
 			style: {
 				backgroundColor: 'black'
 			}
 		}
-	}
+	},
+
+	{ transitionConfig: NavigationConfig }
 );
 
 const AppContainer = createAppContainer(TabNavigator);

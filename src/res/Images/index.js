@@ -2,7 +2,10 @@ const Background = {
 	splash: { source: require('./Background/splash.png'), style: { height: '100%', width: '100%' } },
 	background1: { source: require('./Background/background1.png'), style: { height: '100%', width: '100%' } },
 	loginBg: { source: require('./Background/loginbg.png'), style: { height: '100%', width: '100%' } },
-	emptyView: { source: require('./Background/emptyView.png'), style: { height: '100%', width: '100%' } }
+	bg: { source: require('./Background/bg.png'), style: { height: '100%', width: '100%' } },
+	logo: { source: require('./Background/logo.png'), style: { height: '100%', width: '100%' } },
+	emptyView: { source: require('./Background/emptyView.png'), style: { height: '100%', width: '100%' } },
+	bg1: { source: require('./Background/more-bg.png'), style: { height: '100%', width: '100%' } }
 };
 const Welcome = {
 	welcome: { source: require('./Welcome/welcome.png'), style: { height: '100%', width: '100%' } },
