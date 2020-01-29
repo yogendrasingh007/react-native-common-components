@@ -30,7 +30,8 @@ export default class App extends BaseComponent {
 			...ViewStyles,
 			textStyle: {
 				...Fonts.bold(28),
-				color: Colors.Text_Color
+				color: Colors.Text_Color,
+				fontWeight:'normal'
 			}
 		};
 	}
